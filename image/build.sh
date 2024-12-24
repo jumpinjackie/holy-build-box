@@ -54,10 +54,10 @@ if ! eval_bool "$SKIP_INITIALIZE"; then
 	header "Updating system, installing compiler toolchain"
 	run touch /var/lib/rpm/*
 	run yum update -y
-	run yum install -y autoconf automake bzip2 cmake curl curl-devel epel-release \
-		file gettext git libtool m4 openssl-devel patch perl-IPC-Cmd \
+	run yum install -y autoconf automake bison bzip2 cmake curl curl-devel epel-release \
+		file flex gettext git libtool m4 openssl-devel patch perl-IPC-Cmd \
 		pkgconfig python2-devel python2-pip python2-setuptools \
-		tar zlib-devel "gcc-toolset-$DEVTOOLSET_VERSION" "gcc-toolset-$DEVTOOLSET_VERSION-runtime"
+		tar wget zlib-devel "gcc-toolset-$DEVTOOLSET_VERSION" "gcc-toolset-$DEVTOOLSET_VERSION-runtime"
 	run yum install -y --enablerepo=epel ccache
 
 	echo "*link_gomp: %{static|static-libgcc|static-libstdc++|static-libgfortran: libgomp.a%s; : -lgomp } %{static: -ldl }" > /opt/rh/gcc-toolset-${DEVTOOLSET_VERSION}/root/usr/lib/gcc/*-redhat-linux/9/libgomp.spec
