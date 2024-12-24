@@ -192,7 +192,7 @@ function install_openssl()
 		CFLAGS=$(adjust_optimization_level "$STATICLIB_CFLAGS")
 		export CFLAGS
 		# shellcheck disable=SC2153
-		export LIB_CFLAGS="$SHLIB_CFLAGS"
+		export LIB_CFLAGS="$STATICLIB_CFLAGS"
 		# shellcheck disable=SC2153
 		export LIB_LDFLAGS="-Wl,-znodelete -shared -Wl,-Bsymbolic $SHLIB_LDFLAGS"
 		export DSO_CFLAGS="$SHLIB_CFLAGS"

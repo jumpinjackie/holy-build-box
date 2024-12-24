@@ -1,4 +1,4 @@
-VERSION = 4.0.1
+VERSION = 4.0.1-1
 ifneq ($VERSION, edge)
 MAJOR_VERSION := $(shell awk -v OFS=. -F. '{print $$1,$$2}' <<< $(VERSION))
 endif
@@ -7,7 +7,7 @@ IMG_REPO = ghcr.io
 else
 IMG_REPO = docker.io
 endif
-OWNER = phusion
+OWNER = jumpinjackie
 DISABLE_OPTIMIZATIONS = 0
 IMAGE = $(IMG_REPO)/$(OWNER)/holy-build-box
 
